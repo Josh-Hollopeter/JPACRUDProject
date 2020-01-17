@@ -41,7 +41,7 @@ class SongTest {
 		song = null;
 	}
 
-	@Test
+	@Test 
 	void test() {
 		assertEquals("Them Changes", song.getTitle());
 	}
