@@ -26,7 +26,7 @@ public class SongController {
 	}
 
 	@RequestMapping(path = "songDetails.do")
-	public String songDetails(@RequestParam("songid") int id, Model model) {
+	public String songDetails(@RequestParam("songid") Integer id, Model model) {
 
 		Song song = dao.findSongByid(id);
 
@@ -37,10 +37,10 @@ public class SongController {
 	}
 
 	@RequestMapping(path = "edit.do")
-	public String songEdit(@RequestParam("songid") int id, Model model) {
+	public String songEdit(@RequestParam("songid") Integer id, Model model) {
 		Song song;
-		if (id == 0) {
-			song = new Song("Default", 34.0, "Default", "Default", 34, "Default", "Default");
+		if (id == null || id == 0) {
+			song = new Song("Default", 34.0, "Default", "Default", 5, "Default", "Default");
 			model.addAttribute("song", song);
 			return "edit";
 		} else {
@@ -50,6 +50,29 @@ public class SongController {
 		}
 
 
+	}
+	@RequestMapping(path = "updateCreate.do")
+	public String songEdit(Song song, Model model) {
+		
+		if (song.getId() == 0) {
+			song = dao.createSong(song);
+			model.addAttribute("song", song);
+			return "redirect:home.do";
+		} else {
+			dao.updateSong(song, song.getId());
+			return "redirect:home.do";
+		}
+		
+		
+	}
+	@RequestMapping(path = "delete.do")
+	public String songDelete(@RequestParam("songid") Integer id, Model model) {
+		
+		dao.deleteSong(id);
+		
+		return"redirect:home.do";
+		
+		
 	}
 
 }
