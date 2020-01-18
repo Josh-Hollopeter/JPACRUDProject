@@ -25,9 +25,12 @@
 	
 
 	</div>
-	<form action="edit.do" class ="text-center bg-info">
+	<div class="bg-info"></div>
+	
+	<form action="edit.do" class ="text-center bg-info mx-auto">
  <input type = "hidden" value = "0" name = "songid">
-<button type ="submit" > Create New Song</button>
+<button type ="submit" class="btn btn-dark" > Create New Song</button>
 </form>
+
 </body>
 </html>

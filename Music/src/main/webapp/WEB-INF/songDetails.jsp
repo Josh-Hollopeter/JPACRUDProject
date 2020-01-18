@@ -10,17 +10,48 @@
 <title>${song.title}</title>
 </head>
 <body>
-${song.title}
-<div class="form-group">
-<form action="edit.do" >
-UPDATE SONG <input type = "hidden" value = "${song.id}"  name = "songid">
-<button type ="submit" > Update</button>
- </form>
+<div class="container">
+  <h2><img src="${song.albumArt}" class="img-thumbnail" alt="Album Art" width = "50" height="50" ></h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Genre</th>
+        <th>Album</th>
+        <th>Rating</th>
+        <th>Length</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${song.title}</td>
+        <td>${song.artist }</td>
+        <td>${song.genre}</td>
+        <td>${song.album}</td>
+        <td>${song.rating}</td>
+        <td>${song.length}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
- <form action="delete.do" >
-DELETE SONG <input type = "hidden" value = "${song.id}"  name = "songid">
-<button type ="submit" > Delete</button>
+<div class="form-group text-center">
+<form action="edit.do" >
+ <input type = "hidden" value = "${song.id}"  name = "songid" >
+<button type ="submit" class="text-center btn btn-dark" > Update</button>
+ </form>
+ </div>
+<div class="form-group text-center">
+ <form action="delete.do" class="text-center" >
+<input type = "hidden" value = "${song.id}"  name = "songid">
+<button type ="submit" class="text-center btn btn-dark"> Delete</button>
 </form>
-
+</div>
+<div class="form-group text-center">
+ <form action="home.do" class="text-center" >
+<input type = "hidden" value = "${song.id}"  name = "songid">
+<button type ="submit" class="text-center btn btn-dark"> Home</button>
+</form>
+</div>
 </body>
 </html>
