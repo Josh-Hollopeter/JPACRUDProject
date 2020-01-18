@@ -26,11 +26,17 @@
 
 	</div>
 	<div class="bg-info"></div>
-	
+	<div class="form-group text-center">
 	<form action="edit.do" class ="text-center bg-info mx-auto">
  <input type = "hidden" value = "0" name = "songid">
 <button type ="submit" class="btn btn-dark" > Create New Song</button>
 </form>
-
+</div>
+<div class="form-group text-center">
+	<form action="art.do" class ="text-center bg-info mx-auto">
+ <input type = "hidden" value = "${songs}" name = "songs">
+<button type ="submit" class="btn btn-dark" > See album art slide-show</button>
+</form>
+</div>
 </body>
 </html>

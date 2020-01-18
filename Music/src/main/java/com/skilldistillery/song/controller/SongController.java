@@ -74,5 +74,21 @@ public class SongController {
 		
 		
 	}
+	
+	@RequestMapping(path = "art.do")
+	public String songArt( Model model) {
+		List<Song> songs = dao.getAllSongs();
+		int i =0;
+		for (Song song : songs) {
+			++i;
+			model.addAttribute("song" + i , song);
+		
+		}
+		songs = songs.subList(3, songs.size());
+		model.addAttribute("songs", songs);
+		return"art";
+		
+		
+	}
 
 }
