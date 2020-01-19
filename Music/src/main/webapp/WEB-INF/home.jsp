@@ -35,7 +35,13 @@
 <div class="form-group text-center">
 	<form action="art.do" class ="text-center bg-info mx-auto">
  <input type = "hidden" value = "${songs}" name = "songs">
-<button type ="submit" class="btn btn-dark" > See album art slide-show</button>
+<button type ="submit" class="btn btn-dark" > Album Art</button>
+</form>
+</div>
+<div class="form-group text-center">
+	<form action="logout.do" class ="text-center bg-info mx-auto">
+ <input type = "hidden" value = "${user}" name = "user">
+<button type ="submit" class="btn btn-dark" >Logout</button>
 </form>
 </div>
 </body>

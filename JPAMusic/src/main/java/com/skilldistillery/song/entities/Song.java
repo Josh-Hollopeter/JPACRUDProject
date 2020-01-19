@@ -23,8 +23,11 @@ public class Song {
 	private Integer rating;
 	private String album;
 	private String artist;
+	
+	@Column(name="user_id")
+	private Integer userId;
 
-	Song() {
+	public Song() {
 
 	}
 
@@ -102,6 +105,14 @@ public class Song {
 
 	public void setArtist(String artist) {
 		this.artist = artist;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	@Override

@@ -19,6 +19,7 @@
         Album: <input type="text" name="album"  value = "${song.album}" required class="form-control text-center bg-dark text-light"> <br>
         Artist: <input type="text" name="artist"  value = "${song.artist}" required class="form-control text-center bg-dark text-light"> <br>
         <input type="hidden" value="${song.id }" name="id">
+        <input type ="hidden" value="${user.id}" name = "userId">
        <input type = "Submit" value ="Submit" class="text-center btn btn-dark">
        
 </form>

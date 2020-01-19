@@ -14,12 +14,12 @@
   <style>
   /* Make the image fully responsive */
   .carousel-inner img {
-      width: 100%;
-      height: 100%;
+      width: 75%;
+      height: 75%;
   }
   </style>
 </head>
-<body class="bg-info">
+<body class="bg-info text-center">
 
 <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -34,12 +34,6 @@
   <div class="carousel-inner container" >
     <div class="carousel-item active">
       <img src="${song1.albumArt}" alt="Album Art" >
-    </div>
-    <div class="carousel-item">
-      <img src="${song2.albumArt}" alt="Album Art" width="1100" height="200">
-    </div>
-    <div class="carousel-item">
-      <img src="${song3.albumArt}" alt="Album Art" width="1100" height="200">
     </div>
     <c:forEach var = "song" items="${songs}" >
      <div class="carousel-item">
