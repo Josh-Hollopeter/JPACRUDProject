@@ -4,7 +4,7 @@ Music Library
 
 ### Overview
 * This is a music library where a user can upload song details and album art.
-TODO
+
 
 #### How to Use
 * Create a User and add some songs
@@ -13,7 +13,17 @@ TODO
 * Gradle
 * Git
 * Shell
-* Java
-* OO
 * Entities
 * Bootstrap
+* Java
+* Object Oriented programming
+* Polymorphism (Override)
+* Abstraction
+* Encapsulation
+* Inheritance
+* Loops
+* If statements
+* Exceptions
+* Version Control
+* Slack
+* Static vs Non-Static Methods
