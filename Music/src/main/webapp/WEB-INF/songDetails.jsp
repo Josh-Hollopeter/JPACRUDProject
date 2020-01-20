@@ -35,6 +35,11 @@
     </tbody>
   </table>
 </div>
+<div class = "col-xs-12 text-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GNCd_ERZvZM" align="middle"
+frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>>
+</div>
 <div class="form-group text-center">
 <form action="edit.do" >
  <input type = "hidden" value = "${song.id}"  name = "songid" >

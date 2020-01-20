@@ -7,5 +7,13 @@
 TODO
 
 #### How to Use
-
+* Create a User and add some songs
 ### Technologies
+* Spring
+* Gradle
+* Git
+* Shell
+* Java
+* OO
+* Entities
+* Bootstrap
