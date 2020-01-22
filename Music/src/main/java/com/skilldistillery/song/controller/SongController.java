@@ -149,8 +149,13 @@ public class SongController {
 		if (session.getAttribute("user") != null) {
 			return "home.do";
 		}
-
-		User user = dao.getUserByUserNameAndPassword(userName, password);
+		User user = null;
+		try{
+			user = dao.getUserByUserNameAndPassword(userName, password);
+		}catch(Exception e) {
+			
+		}
+		
 		if (user == null) {
 			model.addAttribute("error", "No user found");
 			return "login";
@@ -172,14 +177,21 @@ public class SongController {
 
 	@RequestMapping(path={"createUser.do" }, method =RequestMethod.POST)
 	public String createUser(@RequestParam("userName") String userName, @RequestParam("password") String password ,Model model,HttpSession session, User user) {
-		 user = dao.createUser(userName, password);
+		User userCheck =  dao.getUserByUserNameAndPassword(userName, password);
+		if(userCheck != null) {
+			model.addAttribute("userExists", "User already exists");
+			return"login";
+		}
+		
+		user = dao.createUser(userName, password);
 		if(user != null) {
 			session.setAttribute("user", user);
 			return"redirect:home.do";
 		}else {
-			
+			model.addAttribute("userExists", "User already exists");
 			return"login";
 		}
+		
 
 		
 	}

@@ -92,15 +92,15 @@ public class MusicDaoImpl implements MusicDao {
 	}
 	
 	public User createUser(String userName, String password) {
+		MusicDaoImpl dao = new MusicDaoImpl();
+		
 		User user = new User(userName, password);
-		System.out.println(user.getPassword() + user.getUserName() +user.getId());
+		
 		try{
-			System.out.println(em);
 			em.persist(user);
 			em.flush();
 			
 		}catch(PersistenceException e) {
-			e.printStackTrace();
 			user = null;
 		}
 
