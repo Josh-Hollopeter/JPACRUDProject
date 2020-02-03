@@ -18,6 +18,7 @@
         Rating: <input type="number" name="rating" step=".5" MIN="0" MAX="5" value= "${song.rating}" required class="form-control text-center bg-dark text-light"> <br>
         Album: <input type="text" name="album"  value = "${song.album}" required class="form-control text-center bg-dark text-light"> <br>
         Artist: <input type="text" name="artist"  value = "${song.artist}" required class="form-control text-center bg-dark text-light"> <br>
+        YouTube Embed: <input type="text" name="youtube"  value = "${song.youtube}" required class="form-control text-center bg-dark text-light"> <br>
         <input type="hidden" value="${song.id }" name="id">
         <input type ="hidden" value="${user.id}" name = "userId">
        <input type = "Submit" value ="Submit" class="text-center btn btn-dark">

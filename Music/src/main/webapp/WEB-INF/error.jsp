@@ -12,7 +12,7 @@
 <body class ="bg-info container">
 <h1 class="bg-danger text-white text-center"> OOPS SOMETHING WENT WRONG!</h1>
 <div class="form-group text-center bg-info">
- <form action="/" class="text-center" >
+ <form action="login.do" class="text-center" >
 
 <button type ="submit" class="text-center btn btn-dark"> Home</button>
 </form>

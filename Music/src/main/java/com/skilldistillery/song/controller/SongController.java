@@ -107,24 +107,24 @@ public class SongController {
 		if (session.getAttribute("user") != null) {
 			User user = (User) session.getAttribute("user");
 			List<Song> songs = dao.getAllSongs(user.getId());
-			if(songs.size() >=4) {
-			int i = 0;
-			for (Song song : songs) {
-				++i;
-				model.addAttribute("song" + i, song);
+			if (songs.size() >= 4) {
+				int i = 0;
+				for (Song song : songs) {
+					++i;
+					model.addAttribute("song" + i, song);
 
-			}
-			songs = songs.subList(3, songs.size());
-			model.addAttribute("songs", songs);
-			return "art";
-			}else {
-				model.addAttribute("songs", songs);
-				try{
-					model.addAttribute("song1" ,songs.get(0));
-				}catch(IndexOutOfBoundsException e) {
-					return"redirect:home.do";
 				}
-				return"art";
+				songs = songs.subList(3, songs.size());
+				model.addAttribute("songs", songs);
+				return "art";
+			} else {
+				model.addAttribute("songs", songs);
+				try {
+					model.addAttribute("song1", songs.get(0));
+				} catch (IndexOutOfBoundsException e) {
+					return "redirect:home.do";
+				}
+				return "art";
 			}
 		} else {
 			return "login";
@@ -132,14 +132,17 @@ public class SongController {
 
 	}
 
-	@RequestMapping(path = { "login.do","/"}, method = RequestMethod.GET)
+	@RequestMapping(path = { "login.do", "/" }, method = RequestMethod.GET)
 	public String loginView(Model model, HttpSession session, User user) {
-		if (session.getAttribute("user") != null) {
-			return "home.do";
-		}
-	
+		User user1 = (User) session.getAttribute("user");
+		if (user1!=null && user1.getId() > 0) {
+			return "home";
+		} else if (session.getAttribute("user") != null) {
+			return "redirect:home.do";
+		} else {
 
-		return "login";
+			return "login";
+		}
 
 	}
 
@@ -147,18 +150,18 @@ public class SongController {
 	public String loginPostView(@RequestParam("userName") String userName, @RequestParam("password") String password,
 			HttpSession session, Model model) {
 		if (session.getAttribute("user") != null) {
-			return "home.do";
+			return "redirect:home.do";
 		}
 		User user = null;
-		try{
+		try {
 			user = dao.getUserByUserNameAndPassword(userName, password);
-		}catch(Exception e) {
-			
+		} catch (Exception e) {
+
 		}
-		
+
 		if (user == null) {
 			model.addAttribute("error", "No user found");
-			return "login";
+			return "redirect:login.do";
 
 		}
 		session.setAttribute("user", user);
@@ -175,24 +178,23 @@ public class SongController {
 
 	}
 
-	@RequestMapping(path={"createUser.do" }, method =RequestMethod.POST)
-	public String createUser(@RequestParam("userName") String userName, @RequestParam("password") String password ,Model model,HttpSession session, User user) {
-		User userCheck =  dao.getUserByUserNameAndPassword(userName, password);
-		if(userCheck != null) {
+	@RequestMapping(path = { "createUser.do" }, method = RequestMethod.POST)
+	public String createUser(@RequestParam("userName") String userName, @RequestParam("password") String password,
+			Model model, HttpSession session, User user) {
+		User userCheck = dao.getUserByUserNameAndPassword(userName, password);
+		if (userCheck != null) {
 			model.addAttribute("userExists", "User already exists");
-			return"login";
+			return "login";
 		}
-		
-		user = dao.createUser(userName, password);
-		if(user != null) {
-			session.setAttribute("user", user);
-			return"redirect:home.do";
-		}else {
-			model.addAttribute("userExists", "User already exists");
-			return"login";
-		}
-		
 
-		
+		user = dao.createUser(userName, password);
+		if (user != null) {
+			session.setAttribute("user", user);
+			return "redirect:home.do";
+		} else {
+			model.addAttribute("userExists", "User already exists");
+			return "login";
+		}
+
 	}
 }

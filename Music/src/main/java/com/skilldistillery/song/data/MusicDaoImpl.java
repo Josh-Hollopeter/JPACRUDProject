@@ -68,6 +68,7 @@ public class MusicDaoImpl implements MusicDao {
 		oldSong.setLength(updateSong.getLength());
 		oldSong.setRating(updateSong.getRating());
 		oldSong.setAlbumArt(updateSong.getAlbumArt());
+		oldSong.setYoutube(updateSong.getYoutube());
 
 		return oldSong;
 	}

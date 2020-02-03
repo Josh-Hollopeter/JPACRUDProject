@@ -26,6 +26,8 @@ public class Song {
 	
 	@Column(name="user_id")
 	private Integer userId;
+	
+	private String youtube;
 
 	public Song() {
 
@@ -119,6 +121,14 @@ public class Song {
 	public String toString() {
 		return "Song [title=" + title + ", length=" + length + ", albumArt=" + albumArt + ", genre=" + genre
 				+ ", rating=" + rating + ", album=" + album + ", artist=" + artist + "]";
+	}
+
+	public String getYoutube() {
+		return youtube;
+	}
+
+	public void setYoutube(String youtube) {
+		this.youtube = youtube;
 	}
 
 }
